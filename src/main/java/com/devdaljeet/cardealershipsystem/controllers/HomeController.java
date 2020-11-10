@@ -147,7 +147,7 @@ public class HomeController {
 	 * @return A HTML page which acts as view car page
 	 */
 	@GetMapping("/searchPrice")
-	public String searchCarPrice(Model model, @RequestParam int min, @RequestParam int max )
+	public String searchCarPrice(Model model, @RequestParam double min, @RequestParam double max )
 	{
 		model.addAttribute("carsFromD1",dataObj.searchCarByPrice(min,max,"Deals_on_Wheels"));
 		model.addAttribute("carsFromD2",dataObj.searchCarByPrice(min,max,"Steals_and_Deals"));
