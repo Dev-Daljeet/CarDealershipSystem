@@ -12,7 +12,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 @Configuration
 public class DatabaseConfig {
 	
-	/**Uses to connect our databaseAcess class that will create query
+	/**Connects to our databaseAcess class that will create query
 	 * @param dataSource An instance of class DataSource
 	 * @return NamedParameterJdbcTemplate An instance of class NamedParameterJdbcTemplate
 	 */
