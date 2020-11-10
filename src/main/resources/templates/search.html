@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Search car</title>
+<link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}" />
+</head>
+<header>
+    <img src="../static/Logo.jpg" th:src="@{/Logo.jpg}">
+    <nav>
+        <ul>
+            <li><a href="/" th:href="@{/}">Home</a></li>
+            <li><a href="/list" th:href="@{/list}">Add</a></li>
+            <li><a href="/view" th:href="@{/view}">View</a></li>
+            <li><a href="/search" th:href="@{/search}">Search</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+<div style="margin-top:100px" class="form-style">
+<h2>Search cars</h2>
+<form action="#" th:action="@{/searchId}">
+<input type="number" min="1" name="id" step="1" placeholder="Enter the ID of car" required>
+<input type="submit" value="search">
+</form>
+<br>
+<form action="#" th:action="@{/searchMake}">
+<input type="text" name="make" placeholder="Enter the make of car" required>
+<input type="submit" value="search">
+</form>
+<br>
+<form action="#" th:action="@{/searchModel}">
+<input type="text" name="modelForCar" placeholder="Enter the model of car" required>
+<input type="submit" value="search">
+</form>
+<br>
+<form action="#" th:action="@{/searchPrice}">
+<label>Search by Price:</label>
+<br>
+<input type="number" min="0" step="0.01" name="min" placeholder="Enter the min price of car" required>
+<input type="number" min="0" step="0.01" name="max" placeholder="Enter the max price of car" required>
+<input type="submit" value="search">
+</form>
+</div>
+</body>
+</html>

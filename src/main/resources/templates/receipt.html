@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Receipt</title>
+<link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}" />
+</head>
+<body>
+<header>
+    <img src="../static/Logo.jpg" th:src="@{/Logo.jpg}">
+    <nav>
+        <ul>
+            <li><a href="/" th:href="@{/}">Home</a></li>
+            <li><a href="/list" th:href="@{/list}">Add</a></li>
+            <li><a href="/view" th:href="@{/view}">View</a></li>
+            <li><a href="/search" th:href="@{/search}">Search</a></li>
+        </ul>
+    </nav>
+</header>
+<h1 style="text-align:center; margin-top:100px;">Car Receipt</h1>
+<div>
+<div>
+<img id="leftbox" src="../static/receipt.jpg" th:src="@{/receipt.jpg}">
+</div>
+<div>
+<table class="receipt" th:object="${car}">
+<tr>
+<th>Make</th>
+<td th:text="*{make}">Make</td>
+</tr>
+<tr>
+<th>Model</th>
+<td th:text="*{model}">Model</td>
+</tr>
+<tr>
+<th>Colour</th>
+<td th:text="*{colour}">Colour</td>
+</tr>
+<tr>
+<th>VIN</th>
+<td th:text="*{vin}">VIN</td>
+</tr>
+<tr>
+<th>Car Dealership</th>
+<td th:text="*{dealership}">Dealership</td>
+</tr>
+<tr>
+<th>Taxes</th>
+<td th:text="'$'+${taxes}">Taxes</td>
+</tr>
+<tr>
+<th>Total Price</th>
+<td th:text="'$'+*{price}">Price</td>
+</tr>
+<tr>
+<th colspan="2" style="text-align:center;" th:text="'Thank you! Now, You are an owner of '+*{make}+' '+*{model}">Thank you</th>
+</tr>
+</table>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,190 @@
+@charset "ISO-8859-1";
+
+body{
+font-family:Verdana, Geneva, sans-serif;
+}
+
+header img {
+    height: 80px;
+    margin-left: 50px;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 25px 0 black;
+}
+
+header * {
+    display: inline;
+}
+
+header li {
+    margin: 20px;
+}
+
+header li a {
+    color: black;
+    text-decoration: none;
+    background-color:  white;
+    border: none;
+    padding: 10px 30px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    background-color: #2ECC71;
+    color: white;
+}
+
+.container {
+border: 3px hidden;
+margin: 90px 0px 0 200px;
+padding: 20px 40px 40px;
+max-width: 1000px;
+}
+
+.footer {
+  text-align: center;
+  background-color: #2ECC71;
+  color: white;
+  padding: 2px;
+  width: 100%;
+}
+
+.form-style{
+	width: 500px;
+	padding: 30px;
+	background: #FFFFFF;
+	margin: 50px auto;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+	font: 16px Arial, Helvetica, sans-serif;
+}
+
+.form-style h2{
+	background: #4D4D4D;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight: 100;
+	padding: 20px;
+	margin: -30px -30px 30px -30px;
+}
+
+.form-style input[type="text"],
+.form-style input[type="number"],
+.form-style input[type="search"],
+.form-style select
+{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 100%;
+	padding: 7px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+	margin-bottom: 10px;
+	height: 45px;
+}
+
+.form-style input[type="submit"]{
+	-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	background-color: #2ECC71;;
+	border: 1px solid #27A0A0;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-size: 14px;
+	padding: 8px 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.form-style input[type="submit"]:hover {
+	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+	background-color:#34CACA;
+}
+
+.cars {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.cars caption {
+  font-weight:bold;
+  font-size:25px;
+}
+
+.cars td, .cars th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.cars tr:nth-child(even){background-color: #f2f2f2;}
+
+.cars tr:hover {background-color: #ddd;}
+
+.cars th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.receipt {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 40%;
+  float:right;
+   margin-top:90px;    
+  margin-right:150px; 
+}
+
+.receipt caption {
+  font-weight:bold;
+  font-size:25px;
+}
+
+.receipt td, .receipt th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.receipt tr:nth-child(even){background-color: #f2f2f2;}
+
+.receipt tr:hover {background-color: #ddd;}
+
+.receipt th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+#leftbox { 
+float:left;  
+width:28%; 
+height:550px; 
+margin-left:120px;
+} 

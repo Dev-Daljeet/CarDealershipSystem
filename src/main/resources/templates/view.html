@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View cars</title>
+<link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}" />
+</head>
+<body>
+<header>
+    <img src="../static/Logo.jpg" th:src="@{/Logo.jpg}">
+    <nav>
+        <ul>
+            <li><a href="/" th:href="@{/}">Home</a></li>
+            <li><a href="/list" th:href="@{/list}">Add</a></li>
+            <li><a href="/view" th:href="@{/view}">View</a></li>
+            <li><a href="/search" th:href="@{/search}">Search</a></li>
+        </ul>
+    </nav>
+</header>
+<h1 style="text-align:center; margin-top:100px;">View Cars</h1>
+<table class="cars">
+<caption>Deals_on_Wheels</caption>
+<tr>
+<th>Make</th>
+<th>Model</th>
+<th>Colour</th>
+<th>Price</th>
+<th>VIN</th>
+<th>Edit</th>
+<th>Delete</th>
+<th>Purchase</th>
+</tr>
+<tr th:each="i : ${carsFromD1}">
+<td th:text="${i.make}">Make</td>
+<td th:text="${i.model}">Model</td>
+<td th:text="${i.colour}">Colour</td>
+<td th:text="'$'+${i.price}">Price</td>
+<td th:text="${i.vin}">VIN</td>
+<td><a href="" th:href="@{/edit/{dealership}/{id}(dealership=${i.dealership},id=${i.id})}">EDIT</a></td>
+<td><a href="" th:href="@{/delete/{dealership}/{id}(dealership=${i.dealership},id=${i.id})}">DELETE</a></td>
+<td><a href="" th:href="@{/purchase/{dealership}/{id}(dealership=${i.dealership},id=${i.id})}">PURCHASE</a></td>
+</tr>
+</table>
+<br>
+<br>
+<table class="cars">
+<caption>Steals_and_Deals</caption>
+<tr>
+<th>Make</th>
+<th>Model</th>
+<th>Colour</th>
+<th>Price</th>
+<th>VIN</th>
+<th>Edit</th>
+<th>Delete</th>
+<th>Purchase</th>
+</tr>
+<tr th:each="i : ${carsFromD2}">
+<td th:text="${i.make}">Make</td>
+<td th:text="${i.model}">Model</td>
+<td th:text="${i.colour}">Colour</td>
+<td th:text="'$'+${i.price}">Price</td>
+<td th:text="${i.vin}">VIN</td>
+<td><a href="" th:href="@{/edit/{dealership}/{id}(dealership=${i.dealership},id=${i.id})}">EDIT</a></td>
+<td><a href="" th:href="@{/delete/{dealership}/{id}(dealership=${i.dealership},id=${i.id})}">DELETE</a></td>
+<td><a href="" th:href="@{/purchase/{dealership}/{id}(dealership=${i.dealership},id=${i.id})}">PURCHASE</a></td>
+</tr>
+</table>
+<br>
+<br>
+<table class="cars">
+<caption>Rhyme_and_Crime</caption>
+<tr>
+<th>Make</th>
+<th>Model</th>
+<th>Colour</th>
+<th>Price</th>
+<th>VIN</th>
+<th>Edit</th>
+<th>Delete</th>
+<th>Purchase</th>
+</tr>
+<tr th:each="i : ${carsFromD3}">
+<td th:text="${i.make}">Make</td>
+<td th:text="${i.model}">Model</td>
+<td th:text="${i.colour}">Colour</td>
+<td th:text="'$'+${i.price}">Price</td>
+<td th:text="${i.vin}">VIN</td>
+<td><a href="" th:href="@{/edit/{dealership}/{id}(dealership=${i.dealership},id=${i.id})}">EDIT</a></td>
+<td><a href="" th:href="@{/delete/{dealership}/{id}(dealership=${i.dealership},id=${i.id})}">DELETE</a></td>
+<td><a href="" th:href="@{/purchase/{dealership}/{id}(dealership=${i.dealership},id=${i.id})}">PURCHASE</a></td>
+</tr>
+</table>
+</body>
+</html>

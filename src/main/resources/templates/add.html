@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add car</title>
+<link rel="stylesheet" type="text/css" media="all" href="../static/style.css" th:href="@{/style.css}" />
+</head>
+<body>
+<header>
+    <img src="../static/Logo.jpg" th:src="@{/Logo.jpg}">
+    <nav>
+        <ul>
+            <li><a href="/" th:href="@{/}">Home</a></li>
+            <li><a href="/list" th:href="@{/list}">Add</a></li>
+            <li><a href="/view" th:href="@{/view}">View</a></li>
+            <li><a href="/search" th:href="@{/search}">Search</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="form-style" style="margin-top: 100px;">
+<h2>Add a new car</h2>
+<form action="#" th:action="@{/add}" th:object="${car}">
+<input type="text" th:field="*{make}" placeholder="Enter the make of car" required>
+<input type="text" th:field="*{model}" placeholder="Enter the model of car"  required>
+<input type="text" th:field="*{colour}" placeholder="Enter the colour of car" required>
+<input type="number" th:field="*{price}" min="0" step="0.01" placeholder="Enter the price of car" required>
+<input type="text" th:field="*{vin}" placeholder="Enter the VIN of car" required>
+<label>Select your Dealership</label>
+<select th:field="*{dealership}" required>
+<option th:each="c : *{dealerships}" th:value="${c}" th:text="${c}" />
+</select>
+<input type="submit" value="Add">
+</form>
+</div>
+</body>
+</html>
