@@ -13,8 +13,6 @@ import org.springframework.stereotype.Repository;
 
 import com.devdaljeet.cardealershipsystem.beans.Car;
 
-
-
 /**Represents the access class which manipulates the database
  * @author Dajeet Singh
  * @version 1.0
@@ -31,6 +29,7 @@ public class DatabaseAccess {
 	public void addCar(Car car)
 	{
 		MapSqlParameterSource  parameters = new MapSqlParameterSource();
+		//query is not vulnerable to sql injection because all dealership inputs are taken from valid array
 		String query = String.format("INSERT INTO %s (make, model, colour, price, vin) VALUES (:make, :model, :colour, :price, :vin)",car.getDealership());
 		parameters.addValue("make",car.getMake());
 		parameters.addValue("model",car.getModel());
@@ -251,5 +250,6 @@ public class DatabaseAccess {
 		}
 		return cars;
 	}
+	
 		
 }

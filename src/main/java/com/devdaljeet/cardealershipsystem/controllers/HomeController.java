@@ -20,7 +20,7 @@ import com.devdaljeet.cardealershipsystem.database.DatabaseAccess;
 public class HomeController {
 	
 	@Autowired
-	private DatabaseAccess da;
+	private DatabaseAccess dataObj;
 	
 	/**Directs to home page of application
 	 * @return A HTML page which acts as home page
@@ -47,7 +47,7 @@ public class HomeController {
 	@GetMapping("/add")
 	public String addCar(Model model, @ModelAttribute Car car)
 	{
-		da.addCar(car);
+		dataObj.addCar(car);
 		model.addAttribute("car",new Car());
 		return "add.html";
 	}
@@ -58,9 +58,9 @@ public class HomeController {
 	@GetMapping("/view")
 	public String viewCars(Model model)
 	{
-		model.addAttribute("carsFromD1",da.getCars("Deals_on_Wheels"));
-		model.addAttribute("carsFromD2",da.getCars("Steals_and_Deals"));
-		model.addAttribute("carsFromD3",da.getCars("Rhyme_and_Crime"));
+		model.addAttribute("carsFromD1",dataObj.getCars("Deals_on_Wheels"));
+		model.addAttribute("carsFromD2",dataObj.getCars("Steals_and_Deals"));
+		model.addAttribute("carsFromD3",dataObj.getCars("Rhyme_and_Crime"));
 		return "view.html";
 	}
 	
@@ -69,7 +69,7 @@ public class HomeController {
 	 */
 	@GetMapping("/edit/{dealership}/{id}")
 	public String goToEditPage(Model model, @PathVariable String dealership, @PathVariable int id){
-		Car car = da.getCarById(id, dealership);
+		Car car = dataObj.getCarById(id, dealership);
 		car.setNewDealership(dealership);
 		model.addAttribute("car", car);
 		return "edit.html";
@@ -81,10 +81,10 @@ public class HomeController {
 	@GetMapping("/edit")
 	public String editCar(Model model, @ModelAttribute Car car)
 	{
-		boolean checkTransfer = da.editCar(car);
+		boolean checkTransfer = dataObj.editCar(car);
 		if(checkTransfer == true)
 		{
-			da.deleteCar(car.getId(), car.getDealership());
+			dataObj.deleteCar(car.getId(), car.getDealership());
 		}
 		return "redirect:/view";
 	}
@@ -94,7 +94,7 @@ public class HomeController {
 	 */
 	@GetMapping("/delete/{dealership}/{id}")
 	public String deleteCar(Model model,  @PathVariable String dealership, @PathVariable int id){
-		da.deleteCar(id, dealership);
+		dataObj.deleteCar(id, dealership);
 		return "redirect:/view";
 	}
 	
@@ -113,9 +113,9 @@ public class HomeController {
 	@GetMapping("/searchId")
 	public String searchCarId(Model model, @RequestParam int id)
 	{
-		model.addAttribute("carsFromD1",da.searchCarById(id,"Deals_on_Wheels"));
-		model.addAttribute("carsFromD2",da.searchCarById(id,"Steals_and_Deals"));
-		model.addAttribute("carsFromD3",da.searchCarById(id,"Rhyme_and_Crime"));
+		model.addAttribute("carsFromD1",dataObj.searchCarById(id,"Deals_on_Wheels"));
+		model.addAttribute("carsFromD2",dataObj.searchCarById(id,"Steals_and_Deals"));
+		model.addAttribute("carsFromD3",dataObj.searchCarById(id,"Rhyme_and_Crime"));
 		return "view.html";
 	}
 	
@@ -125,9 +125,9 @@ public class HomeController {
 	@GetMapping("/searchMake")
 	public String searchCarMake(Model model, @RequestParam String make)
 	{
-		model.addAttribute("carsFromD1",da.searchCarByMake(make,"Deals_on_Wheels"));
-		model.addAttribute("carsFromD2",da.searchCarByMake(make,"Steals_and_Deals"));
-		model.addAttribute("carsFromD3",da.searchCarByMake(make,"Rhyme_and_Crime"));
+		model.addAttribute("carsFromD1",dataObj.searchCarByMake(make,"Deals_on_Wheels"));
+		model.addAttribute("carsFromD2",dataObj.searchCarByMake(make,"Steals_and_Deals"));
+		model.addAttribute("carsFromD3",dataObj.searchCarByMake(make,"Rhyme_and_Crime"));
 		return "view.html";
 	}
 	
@@ -137,9 +137,9 @@ public class HomeController {
 	@GetMapping("/searchModel")
 	public String searchCarModel(Model model, @RequestParam String modelForCar)
 	{
-		model.addAttribute("carsFromD1",da.searchCarByModel(modelForCar,"Deals_on_Wheels"));
-		model.addAttribute("carsFromD2",da.searchCarByModel(modelForCar,"Steals_and_Deals"));
-		model.addAttribute("carsFromD3",da.searchCarByModel(modelForCar,"Rhyme_and_Crime"));
+		model.addAttribute("carsFromD1",dataObj.searchCarByModel(modelForCar,"Deals_on_Wheels"));
+		model.addAttribute("carsFromD2",dataObj.searchCarByModel(modelForCar,"Steals_and_Deals"));
+		model.addAttribute("carsFromD3",dataObj.searchCarByModel(modelForCar,"Rhyme_and_Crime"));
 		return "view.html";
 	}
 	
@@ -149,9 +149,9 @@ public class HomeController {
 	@GetMapping("/searchPrice")
 	public String searchCarPrice(Model model, @RequestParam int min, @RequestParam int max )
 	{
-		model.addAttribute("carsFromD1",da.searchCarByPrice(min,max,"Deals_on_Wheels"));
-		model.addAttribute("carsFromD2",da.searchCarByPrice(min,max,"Steals_and_Deals"));
-		model.addAttribute("carsFromD3",da.searchCarByPrice(min,max,"Rhyme_and_Crime"));
+		model.addAttribute("carsFromD1",dataObj.searchCarByPrice(min,max,"Deals_on_Wheels"));
+		model.addAttribute("carsFromD2",dataObj.searchCarByPrice(min,max,"Steals_and_Deals"));
+		model.addAttribute("carsFromD3",dataObj.searchCarByPrice(min,max,"Rhyme_and_Crime"));
 		return "view.html";
 	}
 	
@@ -161,13 +161,13 @@ public class HomeController {
 	@GetMapping("/purchase/{dealership}/{id}")
 	public String purchaseCar(Model model,  @PathVariable String dealership, @PathVariable int id)
 	{
-		Car car = da.getCarById(id, dealership);
+		Car car = dataObj.getCarById(id, dealership);
 		DecimalFormat decimalFormat = new DecimalFormat("#########0.##");
 		double taxes=Double.parseDouble(decimalFormat.format(car.getPrice()*0.13));
 		car.setPrice(Double.parseDouble(decimalFormat.format(car.getPrice()+taxes)));
 		model.addAttribute("car",car);
 		model.addAttribute("taxes",taxes);
-		da.deleteCar(id, dealership);
+		dataObj.deleteCar(id, dealership);
 		return "receipt.html";	
 	}
 }
