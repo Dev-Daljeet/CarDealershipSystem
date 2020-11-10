@@ -38,7 +38,7 @@ public class HomeController {
 	public String goToAddCarPage(Model model)
 	{
 		model.addAttribute("car", new Car());
-		return "add.html";
+		return "addCar.html";
 	}
 	
 	/**Adds the car to the database
@@ -49,7 +49,7 @@ public class HomeController {
 	{
 		dataObj.addCar(car);
 		model.addAttribute("car",new Car());
-		return "add.html";
+		return "addCar.html";
 	}
 	
 	/**Views/Returns all cars present in database
@@ -61,7 +61,7 @@ public class HomeController {
 		model.addAttribute("carsFromD1",dataObj.getCars("Deals_on_Wheels"));
 		model.addAttribute("carsFromD2",dataObj.getCars("Steals_and_Deals"));
 		model.addAttribute("carsFromD3",dataObj.getCars("Rhyme_and_Crime"));
-		return "view.html";
+		return "viewCar.html";
 	}
 	
 	/**Directs to edit car page for editing the properties of car
@@ -72,7 +72,7 @@ public class HomeController {
 		Car car = dataObj.getCarById(id, dealership);
 		car.setNewDealership(dealership);
 		model.addAttribute("car", car);
-		return "edit.html";
+		return "editCar.html";
 	}
 	
 	/**Saves the edited properties of a car to database
@@ -104,7 +104,7 @@ public class HomeController {
 	@GetMapping("/search")
 	public String goToSearchPage()
 	{
-		return "search.html";
+		return "searchCar.html";
 	}
 	
 	/**Searches the car by ID and returns the result
@@ -116,7 +116,7 @@ public class HomeController {
 		model.addAttribute("carsFromD1",dataObj.searchCarById(id,"Deals_on_Wheels"));
 		model.addAttribute("carsFromD2",dataObj.searchCarById(id,"Steals_and_Deals"));
 		model.addAttribute("carsFromD3",dataObj.searchCarById(id,"Rhyme_and_Crime"));
-		return "view.html";
+		return "viewCar.html";
 	}
 	
 	/**Searches the car by make and returns the result
@@ -128,7 +128,7 @@ public class HomeController {
 		model.addAttribute("carsFromD1",dataObj.searchCarByMake(make,"Deals_on_Wheels"));
 		model.addAttribute("carsFromD2",dataObj.searchCarByMake(make,"Steals_and_Deals"));
 		model.addAttribute("carsFromD3",dataObj.searchCarByMake(make,"Rhyme_and_Crime"));
-		return "view.html";
+		return "viewCar.html";
 	}
 	
 	/**Searches the car by model and returns the result
@@ -140,7 +140,7 @@ public class HomeController {
 		model.addAttribute("carsFromD1",dataObj.searchCarByModel(modelForCar,"Deals_on_Wheels"));
 		model.addAttribute("carsFromD2",dataObj.searchCarByModel(modelForCar,"Steals_and_Deals"));
 		model.addAttribute("carsFromD3",dataObj.searchCarByModel(modelForCar,"Rhyme_and_Crime"));
-		return "view.html";
+		return "viewCar.html";
 	}
 	
 	/**Searches the car by price range (min-max) and returns the result
@@ -152,7 +152,7 @@ public class HomeController {
 		model.addAttribute("carsFromD1",dataObj.searchCarByPrice(min,max,"Deals_on_Wheels"));
 		model.addAttribute("carsFromD2",dataObj.searchCarByPrice(min,max,"Steals_and_Deals"));
 		model.addAttribute("carsFromD3",dataObj.searchCarByPrice(min,max,"Rhyme_and_Crime"));
-		return "view.html";
+		return "viewCar.html";
 	}
 	
 	/**Return a receipt page of the car and delete the car from database
